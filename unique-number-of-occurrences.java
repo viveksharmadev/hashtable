@@ -12,4 +12,11 @@ class unique-number-of-occurrences {
         }
         return true;
     }
+    // tc -> n, sc-> n
+    public boolean uniqueOccurrences(int[] arr) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        for(int a : arr) countMap.put(a, countMap.getOrDefault(a, 0)+1);
+        Set<Integer> set = new HashSet<>(countMap.values());        
+        return countMap.size()==set.size();
+    }
 }
